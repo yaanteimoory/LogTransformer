@@ -8,8 +8,8 @@ namespace CardexLogTransformer.Models
 {
     public class LogItem
     {
-        public required bool IsEnable { get; set; }
-        public required string ColumnName { get; set; }
-        public required ColumnType ColumnType { get; set; }
+        public  bool IsEnable { get; set;  }
+        public  string ColumnName { get; set; }
+        public ColumnType ColumnType { get; set; }
     }
 }

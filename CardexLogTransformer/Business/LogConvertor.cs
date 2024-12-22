@@ -13,16 +13,21 @@ namespace CardexLogTransformer.Business
 
         public class LogType
         {
-            public required int Proiery { get; set; }
             public string? Pattern {  get; set; }
+
+            public Dictionary<string, string> Convert(string log)
+            {
+                return null;
+            }
 
         }
 
-        public required LogType[] LogTypes { get; init; }
+        public LogType[] LogTypes { get; init; }
 
-        public LogItem Convert(string log)
+        public Dictionary<string,string> Convert(string log)
         {
             var logType = DetermineLogType(log);
+            return logType.Convert(log);
 
 
             return null;
@@ -45,7 +50,7 @@ namespace CardexLogTransformer.Business
             }
 
             
-            return defaultLogType ?? throw new Exception("Need Defualt LogTyp");
+            return defaultLogType ?? throw new Exception("Need Default LogTyp");
         }
 
     }
