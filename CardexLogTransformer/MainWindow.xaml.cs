@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CardexLogTransformer.Business;
 using CardexLogTransformer.Properties;
 using Microsoft.Data.SqlClient;
 
@@ -174,6 +175,18 @@ namespace CardexLogTransformer
                     return ex; // Connection failed
                 }
             });
+        }
+
+        private void ReadAndConvertAndInsert()
+        {
+            var path = "";
+            IEnumerable<string> lines = new FileReader(path).Read();
+            foreach (string item in lines)
+            {
+                var convertor = new LogConvertor();
+                var data = convertor.Convert(item);
+
+            }
         }
 
 
